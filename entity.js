@@ -12,7 +12,7 @@ ig.module('plugins.joncom.entity')
 .requires('impact.entity')
 .defines(function() {
     ig.Entity.inject({
-        move_toward_coord: function(x, y, velocity) {
+        setVelocityByCoord: function(x, y, velocity) {
             /*
             // Old method, just as accurate, less elegant?
             var distance_x = x - this.pos.x - this.size.x / 2;
@@ -26,7 +26,7 @@ ig.module('plugins.joncom.entity')
             this.vel.x = Math.cos(angleToTarget) * velocity;
             this.vel.y = Math.sin(angleToTarget) * velocity;
         },
-        move_using_angle: function(angle, velocity) {
+        setVelocityByAngle: function(angle, velocity) {
             var slope = Math.tan(angle);
             var x_factor = (Math.abs(angle) < 1.57 ? 1 : -1); // 1.57 rads ~~ 90 degrees
             var y_factor = (angle > 0 ? 1 : -1);
