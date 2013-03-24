@@ -1,8 +1,8 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
- * @author Jonathan Commins
- * @date   March 23, 2013
- * @version 1.1
+ * @author   Jonathan Commins
+ * @modified March 23, 2013
+ * @version  1.1
  *
  * Version History:
  * 1.0 - Created.
