@@ -35,12 +35,12 @@ ig.module('plugins.joncom.entity')
             this.vel.y = y_factor * velocity * rise;
             this.vel.x = x_factor * velocity * run;
         },
-        isTouchingTile: function(x, y, entity) {
+        isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
-            return ( entity.pos.x + entity.size.x - 1 >= x * tilesize &&
-                entity.pos.x < x * tilesize + tilesize &&
-                entity.pos.y + entity.size.y - 1 >= y * tilesize &&
-                entity.pos.y < y * tilesize + tilesize );
+            return ( this.pos.x + this.size.x - 1 >= x * tilesize &&
+                this.pos.x < x * tilesize + tilesize &&
+                this.pos.y + this.size.y - 1 >= y * tilesize &&
+                this.pos.y < y * tilesize + tilesize );
         }
     });
 });
