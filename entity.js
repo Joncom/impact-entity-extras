@@ -41,6 +41,14 @@ ig.module('plugins.joncom.entity')
                 this.pos.x < x * tilesize + tilesize &&
                 this.pos.y + this.size.y - 1 >= y * tilesize &&
                 this.pos.y < y * tilesize + tilesize );
+        },
+        isOnScreen: function() {
+            return (
+                this.pos.x + this.size.x - 1 >= ig.game.screen.x &&
+                this.pos.x < ig.game.screen.x + ig.system.width &&
+                this.pos.y + this.size.y - 1 >= ig.game.screen.y &&
+                this.pos.y < ig.game.screen.y + ig.system.height
+            );
         }
     });
 });
