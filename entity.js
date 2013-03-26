@@ -38,10 +38,12 @@ ig.module('plugins.joncom.entity')
         },
         isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
-            return ( this.pos.x + this.size.x - 1 >= x * tilesize &&
+            return (
+                this.pos.x + this.size.x - 1 >= x * tilesize &&
                 this.pos.x < x * tilesize + tilesize &&
                 this.pos.y + this.size.y - 1 >= y * tilesize &&
-                this.pos.y < y * tilesize + tilesize );
+                this.pos.y < y * tilesize + tilesize
+            );
         },
         isOnScreen: function() {
             return (
