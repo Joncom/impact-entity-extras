@@ -1,12 +1,13 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified March 23, 2013
- * @version  1.1
+ * @modified March 25, 2013
+ * @version  1.2
  *
  * Version History:
  * 1.0 - Created.
  * 1.1 - Added isTouchingTile method.
+ * 1.2 - Added isOnScreen method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
