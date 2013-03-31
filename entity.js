@@ -21,13 +21,6 @@ ig.module('plugins.joncom.entity')
             return angle;
         },
         setVelocityByCoord: function(x, y, velocity) {
-            /*
-            // Old method, just as accurate, less elegant?
-            var distance_x = x - this.pos.x - this.size.x / 2;
-            var distance_y = y - this.pos.y - this.size.y / 2;
-            this.vel.x = (distance_x > 1 ? 1 : -1) * velocity * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
-            this.vel.y = (distance_y > 1 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
-            */
             var angleToCoord = this.angleToCoord(x, y);
             this.vel.x = Math.cos(angleToCoord) * velocity;
             this.vel.y = Math.sin(angleToCoord) * velocity;
