@@ -29,8 +29,8 @@ ig.module('plugins.joncom.entity')
             this.vel.y = (distance_y > 1 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
             */
             var angleToCoord = this.angleToCoord(x, y);
-            this.vel.x = Math.cos(angleToTarget) * velocity;
-            this.vel.y = Math.sin(angleToTarget) * velocity;
+            this.vel.x = Math.cos(angleToCoord) * velocity;
+            this.vel.y = Math.sin(angleToCoord) * velocity;
         },
         setVelocityByAngle: function(angle, velocity) {
             var slope = Math.tan(angle);
