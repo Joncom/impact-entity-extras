@@ -1,18 +1,25 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified March 25, 2013
- * @version  1.2
+ * @modified March 30, 2013
+ * @version  1.3
  *
  * Version History:
  * 1.0 - Created.
  * 1.1 - Added isTouchingTile method.
  * 1.2 - Added isOnScreen method.
+ * 1.3 - Added angleToCoord method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
 .defines(function() {
     ig.Entity.inject({
+        angleToCoord: function(x, y) {
+            var centerX = this.pos.x + this.size.x/2;
+            var centerY = this.pos.y + this.size.y/2;
+            var angle = Math.atan2(y - centerY, x - centerX);
+            return angle;
+        },
         setVelocityByCoord: function(x, y, velocity) {
             /*
             // Old method, just as accurate, less elegant?
@@ -21,9 +28,7 @@ ig.module('plugins.joncom.entity')
             this.vel.x = (distance_x > 1 ? 1 : -1) * velocity * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
             this.vel.y = (distance_y > 1 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
             */
-            var centerX = this.pos.x + this.size.x/2;
-            var centerY = this.pos.y + this.size.y/2;
-            var angleToTarget = Math.atan2(y - centerY, x - centerX);
+            var angleToCoord = this.angleToCoord(x, y);
             this.vel.x = Math.cos(angleToTarget) * velocity;
             this.vel.y = Math.sin(angleToTarget) * velocity;
         },
