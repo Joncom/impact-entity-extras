@@ -2,7 +2,7 @@
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
  * @modified April 4, 2013
- * @version  1.4
+ * @version  1.5
  *
  * Version History:
  * 1.0 - Created.
@@ -10,6 +10,7 @@
  * 1.2 - Added isOnScreen method.
  * 1.3 - Added angleToCoord method.
  * 1.4 - Modified setVelocityByCoord to be more performant.
+ * 1.5 - Added new method setAccelByCoord.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
