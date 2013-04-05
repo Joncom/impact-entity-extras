@@ -36,6 +36,12 @@ ig.module('plugins.joncom.entity')
             this.vel.y = y_factor * velocity * rise;
             this.vel.x = x_factor * velocity * run;
         },
+        setAccelByCoord: function(x, y, accel) {
+            var distance_x = x - (this.pos.x + this.size.x/2);
+            var distance_y = y - (this.pos.y + this.size.y/2);
+            this.accel.x = (distance_x >= 0 ? 1 : -1) * accel * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
+            this.accel.y = (distance_y >= 0 ? 1 : -1) * accel * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
+        },
         isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
             return (
