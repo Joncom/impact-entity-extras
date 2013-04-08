@@ -1,8 +1,8 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified April 4, 2013
- * @version  1.5
+ * @modified April 7, 2013
+ * @version  1.6
  *
  * Version History:
  * 1.0 - Created.
@@ -11,6 +11,7 @@
  * 1.3 - Added angleToCoord method.
  * 1.4 - Modified setVelocityByCoord to be more performant.
  * 1.5 - Added new method setAccelByCoord.
+ * 1.6 - Added setVelocityByTile method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
@@ -27,6 +28,17 @@ ig.module('plugins.joncom.entity')
             var distance_y = y - (this.pos.y + this.size.y/2);
             this.vel.x = (distance_x >= 0 ? 1 : -1) * velocity * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
             this.vel.y = (distance_y >= 0 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
+        },
+        setVelocityByTile: function(tileX, tileY, velocity) {
+            var tilesize = ig.game.collisionMap.tilesize;
+            var tileCenterX = tileX * tilesize + tilesize / 2;
+            var tileCenterY = tileY * tilesize + tilesize / 2;
+            var entityCenterX = this.pos.x + this.size.x / 2;
+            var entityCenterY = this.pos.y + this.size.y / 2;
+            var distanceX = tileCenterX - entityCenterX;
+            var distanceY = tileCenterY - entityCenterY;
+            this.vel.x = (distanceX >= 0 ? 1 : -1) * velocity * (Math.abs(distanceX) / (Math.abs(distanceX) + Math.abs(distanceY)));
+            this.vel.y = (distanceY >= 0 ? 1 : -1) * velocity * (Math.abs(distanceY) / (Math.abs(distanceX) + Math.abs(distanceY)));
         },
         setVelocityByAngle: function(angle, velocity) {
             var slope = Math.tan(angle);
