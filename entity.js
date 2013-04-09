@@ -1,8 +1,8 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified April 8, 2013
- * @version  1.7
+ * @modified April 9, 2013
+ * @version  1.8
  *
  * Version History:
  * 1.0 - Created.
@@ -13,6 +13,7 @@
  * 1.5 - Added new method setAccelByCoord.
  * 1.6 - Added setVelocityByTile method.
  * 1.7 - Added setAccelByAngle method.
+ * 1.8 - Simplified and more functional set(Velocity/Accel)ByAngle methods.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
@@ -42,13 +43,8 @@ ig.module('plugins.joncom.entity')
             this.vel.y = (distanceY >= 0 ? 1 : -1) * velocity * (Math.abs(distanceY) / (Math.abs(distanceX) + Math.abs(distanceY)));
         },
         setVelocityByAngle: function(angle, velocity) {
-            var slope = Math.tan(angle);
-            var x_factor = (Math.abs(angle) < 1.57 ? 1 : -1); // 1.57 rads ~~ 90 degrees
-            var y_factor = (angle > 0 ? 1 : -1);
-            var rise = (Math.abs(slope) / (1 + Math.abs(slope)));
-            var run = (1 / (1 + Math.abs(slope)));
-            this.vel.y = y_factor * velocity * rise;
-            this.vel.x = x_factor * velocity * run;
+            this.vel.x = Math.cos(angle) * velocity;
+            this.vel.y = Math.sin(angle) * velocity;
         },
         setAccelByCoord: function(x, y, accel) {
             var distance_x = x - (this.pos.x + this.size.x/2);
@@ -57,13 +53,8 @@ ig.module('plugins.joncom.entity')
             this.accel.y = (distance_y >= 0 ? 1 : -1) * accel * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
         },
         setAccelByAngle: function(angle, accel) {
-            var slope = Math.tan(angle);
-            var x_factor = (Math.abs(angle) < 1.57 ? 1 : -1); // 1.57 rads ~~ 90 degrees
-            var y_factor = (angle > 0 ? 1 : -1);
-            var rise = (Math.abs(slope) / (1 + Math.abs(slope)));
-            var run = (1 / (1 + Math.abs(slope)));
-            this.accel.y = y_factor * accel * rise;
-            this.accel.x = x_factor * accel * run;
+            this.vel.x = Math.cos(angle) * accel;
+            this.vel.y = Math.sin(angle) * accel;
         },
         isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
