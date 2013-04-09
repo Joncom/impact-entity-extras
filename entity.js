@@ -53,8 +53,8 @@ ig.module('plugins.joncom.entity')
             this.accel.y = (distance_y >= 0 ? 1 : -1) * accel * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
         },
         setAccelByAngle: function(angle, accel) {
-            this.vel.x = Math.cos(angle) * accel;
-            this.vel.y = Math.sin(angle) * accel;
+            this.accel.x = Math.cos(angle) * accel;
+            this.accel.y = Math.sin(angle) * accel;
         },
         isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
