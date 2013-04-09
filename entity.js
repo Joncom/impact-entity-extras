@@ -1,8 +1,8 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified April 7, 2013
- * @version  1.6
+ * @modified April 8, 2013
+ * @version  1.7
  *
  * Version History:
  * 1.0 - Created.
@@ -12,6 +12,7 @@
  * 1.4 - Modified setVelocityByCoord to be more performant.
  * 1.5 - Added new method setAccelByCoord.
  * 1.6 - Added setVelocityByTile method.
+ * 1.7 - Added setAccelByAngle method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
@@ -54,6 +55,15 @@ ig.module('plugins.joncom.entity')
             var distance_y = y - (this.pos.y + this.size.y/2);
             this.accel.x = (distance_x >= 0 ? 1 : -1) * accel * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
             this.accel.y = (distance_y >= 0 ? 1 : -1) * accel * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
+        },
+        setAccelByAngle: function(angle, accel) {
+            var slope = Math.tan(angle);
+            var x_factor = (Math.abs(angle) < 1.57 ? 1 : -1); // 1.57 rads ~~ 90 degrees
+            var y_factor = (angle > 0 ? 1 : -1);
+            var rise = (Math.abs(slope) / (1 + Math.abs(slope)));
+            var run = (1 / (1 + Math.abs(slope)));
+            this.accel.y = y_factor * accel * rise;
+            this.accel.x = x_factor * accel * run;
         },
         isTouchingTile: function(x, y) {
             var tilesize = ig.game.collisionMap.tilesize;
