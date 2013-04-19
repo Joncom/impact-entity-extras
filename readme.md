@@ -10,6 +10,9 @@ This plugin for ImpactJS adds to the entity module some helpful methods for comm
 ####angleToCoord(x, y)####
 Returns angle in radians between point (`x`, `y`) and center of entity.
 
+####angleFromVelocity()####
+Returns angle in radians based on current `vel.x` and `vel.y` values.
+
 ####setVelocityByCoord(x, y, velocity)####
 Will set `entity.vel.x` and `y` causing entity to travel at a speed of `velocity`, toward point (`x`, `y`).
 
