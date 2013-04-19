@@ -15,6 +15,7 @@
  * 1.7 - Added setAccelByAngle method.
  * 1.8 - Simplified and more functional set(Velocity/Accel)ByAngle methods.
  * 1.9 - Added angleFromVelocity method.
+       - Removed setVelocityByTile method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
@@ -35,17 +36,6 @@ ig.module('plugins.joncom.entity')
             var distance_y = y - (this.pos.y + this.size.y/2);
             this.vel.x = (distance_x >= 0 ? 1 : -1) * velocity * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
             this.vel.y = (distance_y >= 0 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
-        },
-        setVelocityByTile: function(tileX, tileY, velocity) {
-            var tilesize = ig.game.collisionMap.tilesize;
-            var tileCenterX = tileX * tilesize + tilesize / 2;
-            var tileCenterY = tileY * tilesize + tilesize / 2;
-            var entityCenterX = this.pos.x + this.size.x / 2;
-            var entityCenterY = this.pos.y + this.size.y / 2;
-            var distanceX = tileCenterX - entityCenterX;
-            var distanceY = tileCenterY - entityCenterY;
-            this.vel.x = (distanceX >= 0 ? 1 : -1) * velocity * (Math.abs(distanceX) / (Math.abs(distanceX) + Math.abs(distanceY)));
-            this.vel.y = (distanceY >= 0 ? 1 : -1) * velocity * (Math.abs(distanceY) / (Math.abs(distanceX) + Math.abs(distanceY)));
         },
         setVelocityByAngle: function(angle, velocity) {
             this.vel.x = Math.cos(angle) * velocity;
