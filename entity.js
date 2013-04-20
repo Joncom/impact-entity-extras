@@ -15,7 +15,7 @@
  * 1.7 - Added setAccelByAngle method.
  * 1.8 - Simplified and more functional set(Velocity/Accel)ByAngle methods.
  * 1.9 - Added angleFromVelocity method.
-       - Removed setVelocityByTile method.
+ *     - Removed setVelocityByTile method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
