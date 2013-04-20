@@ -8,7 +8,7 @@ This plugin for ImpactJS adds to the entity module some helpful methods for comm
 # Methods #
 
 ####angleToCoord(x, y)####
-Returns angle in radians between point (`x`, `y`) and center of entity.
+Returns angle in radians from the center of the entity to point (`x`, `y`).
 
 ####angleFromVelocity()####
 Returns angle in radians based on current `vel.x` and `vel.y` values.
