@@ -1,11 +1,11 @@
-# Summary #
-This plugin for ImpactJS adds to the entity module some helpful methods for common tasks.
+## Summary ##
+ImpactJS plugin which adds useful methods to the entity module.
 
-# Installation #
+## Installation ##
 1. Download plugin and place in `/lib/plugins/joncom/` folder.
 2. Load plugin within Impact `requires` call.
 
-# Methods #
+## Methods ##
 
 ####angleToCoord(x, y)####
 Returns angle in radians from the center of the entity to point (`x`, `y`).
