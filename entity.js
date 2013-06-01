@@ -1,8 +1,8 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified April 19, 2013
- * @version  1.9
+ * @modified June 1, 2013
+ * @version  2.0
  *
  * Version History:
  * 1.0 - Created.
@@ -16,6 +16,7 @@
  * 1.8 - Simplified and more functional set(Velocity/Accel)ByAngle methods.
  * 1.9 - Added angleFromVelocity method.
  *     - Removed setVelocityByTile method.
+ * 2.0 - Added angleToMouse method.
  */
 ig.module('plugins.joncom.entity')
 .requires('impact.entity')
@@ -25,6 +26,14 @@ ig.module('plugins.joncom.entity')
             var centerX = this.pos.x + this.size.x/2;
             var centerY = this.pos.y + this.size.y/2;
             var angle = Math.atan2(y - centerY, x - centerX);
+            return angle;
+        },
+        angleToMouse: function() {
+            var centerX = this.pos.x + this.size.x/2;
+            var centerY = this.pos.y + this.size.y/2;
+            var mouseX = ig.input.mouse.x + ig.game.screen.x;
+            var mouseY = ig.input.mouse.y + ig.game.screen.y;
+            var angle = Math.atan2(mouseY - centerY, mouseX - centerX);
             return angle;
         },
         angleFromVelocity: function() {
