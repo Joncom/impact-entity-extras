@@ -1,5 +1,5 @@
 /*
- * Plugin for ImpactJS which extends the usefulness ig.Image class.
+ * Plugin for ImpactJS which adds upon the ig.Image class.
  * @author   Jonathan Commins
  * @modified April 26, 2013
  * @version  1.0
