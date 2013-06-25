@@ -5,6 +5,20 @@ Adds useful functionality to the ImpactJS engine.
 1. Download plugin and place in `/lib/plugins/joncom/essentials/` folder.
 2. Load plugin within Impact `requires` call.
 
+### animation.js ###
+
+##### Frame Ranges #####
+
+Instead of defining an animation like this:
+```
+var anim = new ig.Animation( animSheet, 0.1, [0,1,2,3,4,5,6,7,8,9] );
+```
+
+You may now also define a range as a string, like this:
+```
+var anim = new ig.Animation( animSheet, 0.1, "0-9" );
+```
+
 ## Note ##
 This README is anything from complete. For details, see the plugin JavaScript files. However, I've left the below documentation in tact just so that you can have an idea of what kind of functionality these plugins add.
 
@@ -33,18 +47,3 @@ Returns `true` if any part of the entity is overlapping tile (`x`, `y`). Otherwi
 
 ####isOnScreen()####
 Returns `true` if the entity overlaps the screen. Otherwise returns `false`.
-
-### animation.js ###
-
-##### Frame Ranges #####
-
-Instead of defining an animation like this:
-```
-var anim = new ig.Animation( animSheet, 0.1, [0,1,2,3,4,5,6,7,8,9] );
-```
-
-You may now also define a range as a string, like this:
-```
-var anim = new ig.Animation( animSheet, 0.1, "0-9" );
-```
-
