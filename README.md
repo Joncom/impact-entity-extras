@@ -2,7 +2,7 @@
 Adds useful functionality to the ImpactJS engine.
 
 ## Installation ##
-1. Download choice of plugin and place in `/lib/plugins/joncom/` folder.
+1. Download plugin and place in `/lib/plugins/joncom/essentials/` folder.
 2. Load plugin within Impact `requires` call.
 
 ## Note ##
