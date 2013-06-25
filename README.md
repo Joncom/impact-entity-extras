@@ -19,6 +19,12 @@ You may now also define a range as a string, like this:
 var anim = new ig.Animation( animSheet, 0.1, "0-9" );
 ```
 
+### game.js ###
+
+##### spawnEntityBelow #####
+
+By default, Impact will always add a newly spawned entity to the end of the array, meaning that it will be drawn above all pre-existing entities for a least one frame. This method spawns the entity to the start of the array instead.
+
 ## Note ##
 This README is anything from complete. For details, see the plugin JavaScript files. However, I've left the below documentation in tact just so that you can have an idea of what kind of functionality these plugins add.
 
