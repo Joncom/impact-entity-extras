@@ -7,7 +7,7 @@
  * Version History:
  * 1.0 - Created.
  */
-ig.module('plugins.joncom.image')
+ig.module('plugins.joncom.essentials.image')
 .requires('impact.image')
 .defines(function() {
     ig.Image.inject({

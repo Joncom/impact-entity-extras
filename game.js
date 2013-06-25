@@ -1,4 +1,4 @@
-ig.module('plugins.joncom.game')
+ig.module('plugins.joncom.essentials.game')
 .requires('impact.game')
 .defines(function(){
     ig.Game.inject({

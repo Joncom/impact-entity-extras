@@ -1,4 +1,4 @@
-ig.module('plugins.joncom.animation')
+ig.module('plugins.joncom.essentials.animation')
 .requires('impact.animation')
 .defines(function(){ "use strict";
 

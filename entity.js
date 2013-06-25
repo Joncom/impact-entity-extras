@@ -18,7 +18,7 @@
  *     - Removed setVelocityByTile method.
  * 2.0 - Added angleToMouse method.
  */
-ig.module('plugins.joncom.entity')
+ig.module('plugins.joncom.essentials.entity')
 .requires('impact.entity')
 .defines(function() {
     ig.Entity.inject({
