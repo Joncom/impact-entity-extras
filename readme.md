@@ -33,3 +33,18 @@ Returns `true` if any part of the entity is overlapping tile (`x`, `y`). Otherwi
 
 ####isOnScreen()####
 Returns `true` if the entity overlaps the screen. Otherwise returns `false`.
+
+### animation.js ###
+
+##### Frame Ranges #####
+
+Instead of defining an animation like this:
+```
+var anim = new ig.Animation( animSheet, 0.1, [0,1,2,3,4,5,6,7,8,9] );
+```
+
+You can now define a range as string, like this:
+```
+var anim = new ig.Animation( animSheet, 0.1, "0-9" );
+```
+
