@@ -43,8 +43,13 @@ ig.module('plugins.joncom.essentials.entity')
         setVelocityByCoord: function(x, y, velocity) {
             var distance_x = x - (this.pos.x + this.size.x/2);
             var distance_y = y - (this.pos.y + this.size.y/2);
-            this.vel.x = (distance_x >= 0 ? 1 : -1) * velocity * (Math.abs(distance_x) / (Math.abs(distance_x) + Math.abs(distance_y)));
-            this.vel.y = (distance_y >= 0 ? 1 : -1) * velocity * (Math.abs(distance_y) / (Math.abs(distance_x) + Math.abs(distance_y)));
+            var distance_total = Math.sqrt(
+                Math.pow(Math.abs(distance_x), 2) +
+                Math.pow(Math.abs(distance_y), 2)
+            );
+            var factor = velocity / distance_total;
+            this.vel.x = distance_x * factor;
+            this.vel.y = distance_y * factor;
         },
         setVelocityByAngle: function(angle, velocity) {
             this.vel.x = Math.cos(angle) * velocity;
