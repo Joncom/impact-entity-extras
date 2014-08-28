@@ -1,22 +1,7 @@
 /*
  * Plugin for ImpactJS which adds useful methods to all entities.
  * @author   Jonathan Commins
- * @modified June 1, 2013
- * @version  2.0
- *
- * Version History:
- * 1.0 - Created.
- * 1.1 - Added isTouchingTile method.
- * 1.2 - Added isOnScreen method.
- * 1.3 - Added angleToCoord method.
- * 1.4 - Modified setVelocityByCoord to be more performant.
- * 1.5 - Added new method setAccelByCoord.
- * 1.6 - Added setVelocityByTile method.
- * 1.7 - Added setAccelByAngle method.
- * 1.8 - Simplified and more functional set(Velocity/Accel)ByAngle methods.
- * 1.9 - Added angleFromVelocity method.
- *     - Removed setVelocityByTile method.
- * 2.0 - Added angleToMouse method.
+ * @email    joncom@gmail.com
  */
 ig.module('plugins.joncom.essentials.entity')
 .requires('impact.entity')
