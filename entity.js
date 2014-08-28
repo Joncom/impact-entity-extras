@@ -31,30 +31,30 @@ ig.module('plugins.joncom.essentials.entity')
             return Math.sqrt(xd * xd + yd * yd);
         },
         setVelocityByCoord: function(x, y, velocity) {
-            var distance_x = x - (this.pos.x + this.size.x/2);
-            var distance_y = y - (this.pos.y + this.size.y/2);
+            var xd = x - (this.pos.x + this.size.x/2);
+            var xy = y - (this.pos.y + this.size.y/2);
             var distance_total = Math.sqrt(
-                distance_x * distance_x +
-                distance_y * distance_y
+                xd * xd +
+                xy * xy
             );
             var factor = velocity / distance_total;
-            this.vel.x = distance_x * factor;
-            this.vel.y = distance_y * factor;
+            this.vel.x = xd * factor;
+            this.vel.y = xy * factor;
         },
         setVelocityByAngle: function(angle, velocity) {
             this.vel.x = Math.cos(angle) * velocity;
             this.vel.y = Math.sin(angle) * velocity;
         },
         setAccelByCoord: function(x, y, accel) {
-            var distance_x = x - (this.pos.x + this.size.x/2);
-            var distance_y = y - (this.pos.y + this.size.y/2);
+            var xd = x - (this.pos.x + this.size.x/2);
+            var xy = y - (this.pos.y + this.size.y/2);
             var distance_total = Math.sqrt(
-                distance_x * distance_x +
-                distance_y * distance_y
+                xd * xd +
+                xy * xy
             );
             var factor = accel / distance_total;
-            this.accel.x = distance_x * factor;
-            this.accel.y = distance_y * factor;
+            this.accel.x = xd * factor;
+            this.accel.y = xy * factor;
         },
         setAccelByAngle: function(angle, accel) {
             this.accel.x = Math.cos(angle) * accel;
