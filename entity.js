@@ -34,8 +34,8 @@ ig.module('plugins.joncom.essentials.entity')
             var distance_x = x - (this.pos.x + this.size.x/2);
             var distance_y = y - (this.pos.y + this.size.y/2);
             var distance_total = Math.sqrt(
-                Math.pow(Math.abs(distance_x), 2) +
-                Math.pow(Math.abs(distance_y), 2)
+                distance_x * distance_x +
+                distance_y * distance_y
             );
             var factor = velocity / distance_total;
             this.vel.x = distance_x * factor;
@@ -49,8 +49,8 @@ ig.module('plugins.joncom.essentials.entity')
             var distance_x = x - (this.pos.x + this.size.x/2);
             var distance_y = y - (this.pos.y + this.size.y/2);
             var distance_total = Math.sqrt(
-                Math.pow(Math.abs(distance_x), 2) +
-                Math.pow(Math.abs(distance_y), 2)
+                distance_x * distance_x +
+                distance_y * distance_y
             );
             var factor = accel / distance_total;
             this.accel.x = distance_x * factor;
