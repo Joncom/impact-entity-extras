@@ -33,10 +33,7 @@ ig.module('plugins.joncom.essentials.entity')
         setVelocityByCoord: function(x, y, velocity) {
             var xd = x - (this.pos.x + this.size.x/2);
             var xy = y - (this.pos.y + this.size.y/2);
-            var distance_total = Math.sqrt(
-                xd * xd +
-                xy * xy
-            );
+            var distance_total = Math.sqrt( xd * xd + xy * xy );
             var factor = velocity / distance_total;
             this.vel.x = xd * factor;
             this.vel.y = xy * factor;
@@ -48,10 +45,7 @@ ig.module('plugins.joncom.essentials.entity')
         setAccelByCoord: function(x, y, accel) {
             var xd = x - (this.pos.x + this.size.x/2);
             var xy = y - (this.pos.y + this.size.y/2);
-            var distance_total = Math.sqrt(
-                xd * xd +
-                xy * xy
-            );
+            var distance_total = Math.sqrt( xd * xd + xy * xy );
             var factor = accel / distance_total;
             this.accel.x = xd * factor;
             this.accel.y = xy * factor;
